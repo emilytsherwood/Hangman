@@ -9,12 +9,7 @@
 	margin-right: 10%;
 }
 
- .letters {
-    display: inline-block;
-    list-style: none;
-    width: 20px;
-    margin: 0 5px;
-    border-bottom: 1px solid black;
-    text-align: center;
-    color: white;
+#underscores {
+	font-family: "Verdana";
+	font-weight: bold;
 }
