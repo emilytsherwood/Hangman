@@ -110,8 +110,9 @@ document.onkeyup = function(event) {
         show(matchedLetters);
 
   }
-        //     dashes = dashes.replace('_', currentWord.charAt[i]);
-        // }
+
+   dashes = dashes.replace('_', currentWord.charAt[i]);
+   } // ??????
 
 //         document.getElementById('currentWord').innerHTML = (currentWord.charAt[i]);
 //         // Will take userGuess...
