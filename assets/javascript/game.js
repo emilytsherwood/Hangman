@@ -4,11 +4,12 @@ var words = ['gorilla', 'leaf', 'ocean']; // Creating the array of words for the
 var currentWord = words[0];
 var dashes = [];
 var userGuesses = [];
+var guessedLetters = [];
 var matchedLetters; //
 var remainingGuesses; 
 var totalGuesses = 12;
 var wins = [];
-var correctLetter = []; // Check the letter in word (true or false)
+var correctLetter;
 var wordSplit = []; //Splitting up the words in the array by letter to match user guess
 
 // Functions //
@@ -94,39 +95,35 @@ function endGame() {
 
 // Game will begin when any key is pressed
 document.onkeyup = function(event) {
-    console.log(String.fromCharCode(event.keyCode).toLowerCase());
+    userGuess = (String.fromCharCode(event.keyCode).toLowerCase());
 
-    function letterCheck() {
-        for (i = 0; i < currentWord.length; i++) {
-            dashes = dashes.replace('_', currentWord.charAt[i]);
+//checking to see if userGuess is in the word
+    function letterCheck(letter) {
+        	userGuess.push(guess.toLowerCase());
+        	var matchedLetters = '';
+        	for (i = 0; i<currentWord.length; i++)
+        	if (userGuess.indexOf(currentWord[i].toLowerCase()) > -1) 
+        		matchedLetters += currentWord[i];
+        	else
+        		matchedLetters += '_';
         }
-        document.getElementById('currentWord').innerHTML = ()
-        // Will take userGuess...
-        // Loop through the letters in 'currentWord' to match any correct letters
-        // Loop?
-    }
-}
-// // Loop to show wordLength as underscores
-// for (var i = 0; i < currentWord.length; i++){
-// 	dashes.push('_'); //.push will push whatever is in the ('') into the currentWord var
-// }
-// document.getElementById('currentWord').innerHTML=(dashes.join(' '));
+        show(matchedLetters);
+
+  }
+        //     dashes = dashes.replace('_', currentWord.charAt[i]);
+        // }
+
+//         document.getElementById('currentWord').innerHTML = (currentWord.charAt[i]);
+//         // Will take userGuess...
+//         // Loop through the letters in 'currentWord' to match any correct letters
+//         // Loop?
 
 
+// // Once you decrease the guesses, write this to display on place
+//   document.getElementById('guessesLeft').innerHTML = 'Number of Guesses Remaining: ' ; + guessedLetters.join(', ');
+// };
 
-
-
-
-// document.onkeyup = function (event){
-	// var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-
-// // User presses a key, it records the keypress and then sets it to userGuess
-// document.onkeyup = function(event){
-// 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-
-// //Limiting userGuess to these letters
+    // Limiting userGuess to these letters
 // if ((userGuess == 'a') || (userGuess == 'b') || (userGuess == 'c') || (userGuess == 'd') ||
 // 	(userGuess == 'e') || (userGuess == 'f') || (userGuess == 'g') || (userGuess == 'h') ||
 // 	(userGuess == 'i') || (userGuess == 'j') || (userGuess == 'k') || (userGuess == 'l') ||
@@ -134,6 +131,11 @@ document.onkeyup = function(event) {
 // 	(userGuess == 'q') || (userGuess == 'r') || (userGuess == 's') || (userGuess == 't') ||
 // 	(userGuess == 'u') || (userGuess == 'v') || (userGuess == 'w') || (userGuess == 'x') ||
 // 	(userGuess == 'y') || (userGuess == 'z')){
+
+
+
+
+
 
 
 
