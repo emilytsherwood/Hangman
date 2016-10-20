@@ -1,34 +1,28 @@
-
-//Need to get user input
-//need to create an array of words
-//need to get the selected word
-//need to compare it to the selected
-
-document.onkeyup = function (event){
-	 console.log(String.fromCharCode(event.keyCode).toLowerCase());
- }
 // Variables //
 
 var words = ['gorilla', 'leaf', 'ocean']; // Creating the array of words for the computer to choose from
 var currentWord = words[0];
 var dashes = [];
 var userGuesses = [];
-var matchedLetters;
-var remainingGuesses;
+var matchedLetters; //
+var remainingGuesses; 
 var totalGuesses = 12;
 var wins = [];
-var correctLetters; // Stores all the correct letters? 
+var correctLetter = []; // Check the letter in word (true or false)
+var wordSplit = []; //Splitting up the words in the array by letter to match user guess
 
 // Functions //
 
 function startReset() {
 	// new word gets chosen (currentWord)
-	// 
+	// totalGuesses gets reset to 12
+	// userGuesses gets reset
 }
 
 function wordChoice() {
 	// The computer will randomly choose a word from the 'words' array
 	// Will then set the 'currentWord' to this chosen word
+	// Math.random function?
 }
 
 function underscore() {
@@ -39,6 +33,9 @@ function letterCheck() {
 	// Will take userGuess...
 	// Loop through the letters in 'currentWord' to match any correct letters
 	// Loop?
+	 // for (i = 0; i < currentWord.length; i++) {
+  //   		dashes = dashes.replace("_", currentWord.charAt[i]);
+		// } 
 }
 
 function goodGuess() {
@@ -62,7 +59,7 @@ function updateGuesses() {
 
 function success() {
 	// If word is completey guessed (all underscores gone and replaced with goodGuess)
-	// Increase 
+	// Increase score by 1
 }
 
 function endGame() {
@@ -70,18 +67,60 @@ function endGame() {
 }
 
 
+// Start of game //
+    totalGuesses = 12;
+    userGuesses = [];
+    remainingGuesses = 12;
+    wins = [];
 
+    // Computer choosing the random word from array 
+    currentWord = words[Math.floor(Math.random() * words.length)];
+    console.log(currentWord); //Console.logs the hidden word for my reference
 
-// Loop to show wordLength as underscores
-for (var i = 0; i < currentWord.length; i++){
-	dashes.push('_'); //.push will push whatever is in the ('') into the currentWord var
+    // Loop to show wordLength as underscores
+    for (var i = 0; i < currentWord.length; i++) {
+        dashes.push('_'); //.push will push whatever is in the ('') into the currentWord var
+    }
+    document.getElementById('currentWord').innerHTML = (dashes.join(' '));
+
+	//Will split the currentWord into single character strings
+    wordSplit = currentWord.split(''); 
+    console.log(wordSplit)
+
+    // Displaying initial set-up information
+    document.getElementById('winning').innerHTML = 'Wins: '
+    document.getElementById('guessesLeft').innerHTML = 'Number of Guesses Remaining: ' + remainingGuesses;
+    document.getElementById('alreadyGuessed').innerHTML = 'Letters Already Guessed: '
+
+// Game will begin when any key is pressed
+document.onkeyup = function(event) {
+    console.log(String.fromCharCode(event.keyCode).toLowerCase());
+
+    function letterCheck() {
+        for (i = 0; i < currentWord.length; i++) {
+            dashes = dashes.replace('_', currentWord.charAt[i]);
+        }
+        document.getElementById('currentWord').innerHTML = ()
+        // Will take userGuess...
+        // Loop through the letters in 'currentWord' to match any correct letters
+        // Loop?
+    }
 }
-document.getElementById('currentWord').innerHTML=(dashes.join(' '));
+// // Loop to show wordLength as underscores
+// for (var i = 0; i < currentWord.length; i++){
+// 	dashes.push('_'); //.push will push whatever is in the ('') into the currentWord var
+// }
+// document.getElementById('currentWord').innerHTML=(dashes.join(' '));
+
+
+
+
+
 
 // document.onkeyup = function (event){
 	// var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
-// words[Math.floor(Math.random() * words.length)];
+
 // // User presses a key, it records the keypress and then sets it to userGuess
 // document.onkeyup = function(event){
 // 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
