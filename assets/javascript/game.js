@@ -26,10 +26,6 @@ function wordChoice() {
 	// Math.random function?
 }
 
-function underscore() {
-	// Will create underscores(_) for the the length of the currentWord
-}
-
 function letterCheck() {
 	// Will take userGuess...
 	// Loop through the letters in 'currentWord' to match any correct letters
@@ -39,23 +35,8 @@ function letterCheck() {
 		// } 
 }
 
-function goodGuess() {
-	// If userGuess matches correctLetters in currentWord... 
-	// Replace the corresponding underscores with the correct letter
-	// If/Else statement?
-}
-
-function badGuess() {
-	// If userGuess is incorrect in currentWord...
-	// set updateGuesses to decrease
-}
-
 function guessedLetters() {
 	// Will display the letters that the user has guessed (that are incorrect)
-}
-
-function updateGuesses() {
-	// Will decrease everytime the user gets a guess wrong (badGuess) by 1
 }
 
 function success() {
@@ -99,20 +80,27 @@ document.onkeyup = function(event) {
 
 //checking to see if userGuess is in the word
         	userGuesses.push(userGuess.toLowerCase());
-        	var matchedLetters = '';
+        	var matchedLetters = ''; // These are the correct letters the the user guesses
         	for (i = 0; i<currentWord.length; i++) {
         		if (userGuesses.indexOf(currentWord[i].toLowerCase()) > -1) {
         		matchedLetters += currentWord[i];
         	}
         	else {
         		matchedLetters += '_ ';
-        		remainingGuesses --;
-        		document.getElementById('alreadyGuessed').innerHTML = 
+        		remainingGuesses --; //Why is this decreasing by 4????
+        		document.getElementById('alreadyGuessed').innerHTML = 'Letters already Guessed: ' + userGuesses.join(', ');
         		document.getElementById('guessesLeft').innerHTML = 'Number of Guesses Remaining: ' + remainingGuesses;
         	}
     }
     console.log(matchedLetters);
     document.getElementById('currentWord').innerHTML = matchedLetters;
+
+if (currentWord == matchedLetters) {
+	alert ('You win!');
+}
+	else if 
+		(remainingGuesses <= 0) 
+	 		alert ('You lose! The word was ' + currentWord);
 };
 
 
