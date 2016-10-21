@@ -6,51 +6,16 @@ var dashes = [];
 var userGuesses = [];
 var guessedLetters = [];
 var matchedLetters; 
-var remainingGuesses; 
+var remainingGuesses = 12;
 var totalGuesses = 12;
 var wins = 0;
 var correctLetter;
 var wordSplit = []; //Splitting up the words in the array by letter to match user guess
 
-// Functions //
-
-function startReset() {
-	// new word gets chosen (currentWord)
-	// totalGuesses gets reset to 12
-	// userGuesses gets reset
-}
-
-function wordChoice() {
-	// The computer will randomly choose a word from the 'words' array
-	// Will then set the 'currentWord' to this chosen word
-	// Math.random function?
-}
-
-function letterCheck() {
-	// Will take userGuess...
-	// Loop through the letters in 'currentWord' to match any correct letters
-	// Loop?
-	 // for (i = 0; i < currentWord.length; i++) {
-  //   		dashes = dashes.replace("_", currentWord.charAt[i]);
-		// } 
-}
-
-function guessedLetters() {
-	// Will display the letters that the user has guessed (that are incorrect)
-}
-
-function success() {
-	// If word is completey guessed (all underscores gone and replaced with goodGuess)
-	// Increase score by 1
-}
-
-function endGame() {
-	// If remainingGuesses reaches 0...end game
-}
-
 
 // Start of game //
-    totalGuesses = 12;
+function startReset(){
+	totalGuesses = 12;
     userGuesses = [];
     remainingGuesses = 12;
     wins = [];
@@ -58,12 +23,13 @@ function endGame() {
     // Computer choosing the random word from array 
     currentWord = words[Math.floor(Math.random() * words.length)];
     console.log(currentWord); //Console.logs the hidden word for my reference
-
+} // End of startReset function
     // Loop to show wordLength as underscores
     for (var i = 0; i < currentWord.length; i++) {
         dashes.push('_'); //.push will push whatever is in the ('') into the currentWord var
     }
     document.getElementById('currentWord').innerHTML = (dashes.join(' '));
+   
 
 	//Will split the currentWord into single character strings
     wordSplit = currentWord.split(''); 
@@ -85,18 +51,21 @@ document.onkeyup = function(event) {
         		if (userGuesses.indexOf(currentWord[i].toLowerCase()) > -1) {
         		matchedLetters += currentWord[i];
         	}
-        	else {
+        	else { 
         		matchedLetters += '_ ';
-        		remainingGuesses --; //Why is this decreasing by 4????
-        		document.getElementById('alreadyGuessed').innerHTML = 'Letters already Guessed: ' + userGuesses.join(', ');
-        		document.getElementById('guessesLeft').innerHTML = 'Number of Guesses Remaining: ' + remainingGuesses;
+        		remainingGuesses--;
         	}
+        	document.getElementById('guessesLeft').innerHTML = 'Number of Guesses Remaining: ' + remainingGuesses;
+        	document.getElementById('alreadyGuessed').innerHTML = 'Letters already Guessed: ' + userGuesses.join(', ');
     }
     console.log(matchedLetters);
     document.getElementById('currentWord').innerHTML = matchedLetters;
 
 if (currentWord == matchedLetters) {
 	alert ('You win!');
+	wins ++;
+	document.getElementById('winning').innerHTML = 'Wins: ' + wins;
+	startReset();
 }
 	else if 
 		(remainingGuesses <= 0) 
@@ -106,15 +75,7 @@ if (currentWord == matchedLetters) {
 
 
 
-//         document.getElementById('currentWord').innerHTML = (currentWord.charAt[i]);
-//         // Will take userGuess...
-//         // Loop through the letters in 'currentWord' to match any correct letters
-//         // Loop?
 
-
-// // Once you decrease the guesses, write this to display on place
-//   document.getElementById('guessesLeft').innerHTML = 'Number of Guesses Remaining: ' ; + guessedLetters.join(', ');
-// };
 
 
 
