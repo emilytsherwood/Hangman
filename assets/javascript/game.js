@@ -5,10 +5,10 @@ var currentWord = words[0];
 var dashes = [];
 var userGuesses = [];
 var guessedLetters = [];
-var matchedLetters; //
+var matchedLetters; 
 var remainingGuesses; 
 var totalGuesses = 12;
-var wins = [];
+var wins = 0;
 var correctLetter;
 var wordSplit = []; //Splitting up the words in the array by letter to match user guess
 
@@ -105,11 +105,17 @@ document.onkeyup = function(event) {
         		matchedLetters += currentWord[i];
         	}
         	else {
-        		matchedLetters += '_';
+        		matchedLetters += '_ ';
+        		remainingGuesses --;
+        		document.getElementById('alreadyGuessed').innerHTML = 
+        		document.getElementById('guessesLeft').innerHTML = 'Number of Guesses Remaining: ' + remainingGuesses;
         	}
-    console.log(matchedLetters);
     }
+    console.log(matchedLetters);
+    document.getElementById('currentWord').innerHTML = matchedLetters;
 };
+
+
 
 
 //         document.getElementById('currentWord').innerHTML = (currentWord.charAt[i]);
