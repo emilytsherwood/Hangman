@@ -7,17 +7,19 @@ var guessedLetters = [];
 var matchedLetters;
 var remainingGuesses = 12;
 var wins = 0;
-var correctLetter;
 var wordSplit = []; //Splitting up the words in the array by letter to match user guess
 
 
 // Start of game //
 function startReset() {
-
+	remainingGuesses = 12;
+	wins = [];
+	userGuesses = [];
+	guessedLetters = [];
     // Computer choosing the random word from array 
     currentWord = words[Math.floor(Math.random() * words.length)];
     console.log(currentWord); //Console.logs the hidden word for my reference
-} // End of startReset function
+}// End of startReset function
 // Loop to show wordLength as underscores
 for (var i = 0; i < currentWord.length; i++) {
     dashes.push('_'); //.push will push whatever is in the ('') into the currentWord var
@@ -49,6 +51,7 @@ document.onkeyup = function(event) {
         document.getElementById('guessesLeft').innerHTML = 'Number of Guesses Remaining: ' + remainingGuesses;
         document.getElementById('alreadyGuessed').innerHTML = 'Letters already Guessed: ' + userGuesses.join(', ');
     }
+    	// Updating the remaining guesses, decreasing by 1
      	remainingGuesses--;
 
     console.log(matchedLetters);
