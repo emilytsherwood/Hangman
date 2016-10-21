@@ -98,21 +98,19 @@ document.onkeyup = function(event) {
     userGuess = (String.fromCharCode(event.keyCode).toLowerCase());
 
 //checking to see if userGuess is in the word
-    function letterCheck(letter) {
-        	userGuess.push(guess.toLowerCase());
+        	userGuesses.push(userGuess.toLowerCase());
         	var matchedLetters = '';
-        	for (i = 0; i<currentWord.length; i++)
-        	if (userGuess.indexOf(currentWord[i].toLowerCase()) > -1) 
+        	for (i = 0; i<currentWord.length; i++) {
+        		if (userGuesses.indexOf(currentWord[i].toLowerCase()) > -1) {
         		matchedLetters += currentWord[i];
-        	else
+        	}
+        	else {
         		matchedLetters += '_';
-        }
-        show(matchedLetters);
+        	}
+    console.log(matchedLetters);
+    }
+};
 
-  }
-
-   dashes = dashes.replace('_', currentWord.charAt[i]);
-   } // ??????
 
 //         document.getElementById('currentWord').innerHTML = (currentWord.charAt[i]);
 //         // Will take userGuess...
@@ -124,14 +122,6 @@ document.onkeyup = function(event) {
 //   document.getElementById('guessesLeft').innerHTML = 'Number of Guesses Remaining: ' ; + guessedLetters.join(', ');
 // };
 
-    // Limiting userGuess to these letters
-// if ((userGuess == 'a') || (userGuess == 'b') || (userGuess == 'c') || (userGuess == 'd') ||
-// 	(userGuess == 'e') || (userGuess == 'f') || (userGuess == 'g') || (userGuess == 'h') ||
-// 	(userGuess == 'i') || (userGuess == 'j') || (userGuess == 'k') || (userGuess == 'l') ||
-// 	(userGuess == 'm') || (userGuess == 'n') || (userGuess == 'o') || (userGuess == 'p') ||
-// 	(userGuess == 'q') || (userGuess == 'r') || (userGuess == 's') || (userGuess == 't') ||
-// 	(userGuess == 'u') || (userGuess == 'v') || (userGuess == 'w') || (userGuess == 'x') ||
-// 	(userGuess == 'y') || (userGuess == 'z')){
 
 
 
