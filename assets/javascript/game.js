@@ -7,7 +7,6 @@ var userGuesses = [];
 var guessedLetters = [];
 var matchedLetters; 
 var remainingGuesses = 12;
-var totalGuesses = 12;
 var wins = 0;
 var correctLetter;
 var wordSplit = []; //Splitting up the words in the array by letter to match user guess
@@ -15,15 +14,11 @@ var wordSplit = []; //Splitting up the words in the array by letter to match use
 
 // Start of game //
 function startReset(){
-	totalGuesses = 12;
-    userGuesses = [];
-    remainingGuesses = 12;
-    wins = [];
 
     // Computer choosing the random word from array 
     currentWord = words[Math.floor(Math.random() * words.length)];
     console.log(currentWord); //Console.logs the hidden word for my reference
-} // End of startReset function
+ }// End of startReset function
     // Loop to show wordLength as underscores
     for (var i = 0; i < currentWord.length; i++) {
         dashes.push('_'); //.push will push whatever is in the ('') into the currentWord var
@@ -67,9 +62,10 @@ if (currentWord == matchedLetters) {
 	document.getElementById('winning').innerHTML = 'Wins: ' + wins;
 	startReset();
 }
-	else if 
+	else if  
 		(remainingGuesses <= 0) 
 	 		alert ('You lose! The word was ' + currentWord);
+	 		startReset();
 };
 
 
