@@ -1,5 +1,7 @@
 // Variables //
-var words = ['gorilla', 'leaf', 'ocean']; // Creating the array of words for the computer to choose from
+
+// Creating the array of words for the computer to choose from
+var words = ['garden', 'leaf', 'ocean', 'mountain', 'eagle', 'valley', 'tree', 'harambe']; 
 var currentWord = words[0];
 var dashes = [];
 var userGuesses = [];
@@ -13,7 +15,7 @@ var wordSplit = []; //Splitting up the words in the array by letter to match use
 // Start of game //
 function startReset() {
 	remainingGuesses = 12;
-	wins = [];
+	wins+1;
 	userGuesses = [];
 	guessedLetters = [];
     // Computer choosing the random word from array 
@@ -59,7 +61,7 @@ document.onkeyup = function(event) {
 
     if (currentWord == matchedLetters) {
         alert('You win!');
-        wins++;
+       	wins++; 
         document.getElementById('winning').innerHTML = 'Wins: ' + wins;
         startReset();
     } else if (remainingGuesses <= 0) {
