@@ -1,7 +1,7 @@
 // Variables //
 
 // Creating the array of words for the computer to choose from
-var words = ['garden', 'leaf', 'ocean', 'mountain', 'eagle', 'valley', 'tree', 'harambe']; 
+var words = ['garden', 'leaf', 'ocean', 'mountain', 'eagle', 'valley', 'tree', 'harambe', 'ant']; 
 var currentWord = words[0];
 var dashes = [];
 var userGuesses = [];
@@ -10,7 +10,6 @@ var matchedLetters;
 var remainingGuesses = 12;
 var wins = 0;
 var wordSplit = []; //Splitting up the words in the array by letter to match user guess
-
 
 // Start of game //
 function startReset() {

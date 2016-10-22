@@ -14,27 +14,34 @@
   <h1>Hangman</h1>
   <p>Press any key to get started!</p>
 </div>
-<!-- Panel that will hold my image and game -->
-<div class="panel panel-default panel-style">
-  <div class="panel-body">
-    <ul>
-    	<!-- A list to  -->
-    	<li id="winning">Wins:</li>
-    		<br>
-    		<br>
-    		CURRENT WORD:
-    	<p id="currentWord"></p>
-    		<br>
-    		<br>
-    	<li id="guessesLeft">Number of Guesses Remaining:</li>
-    	<br>
-    	<br>
-		<li id="alreadyGuessed">Letters Already Guessed:</li>
+
+<div class="body-wrap">
+
+<div class="container">
+  <div class="row row-style">
+    <div class="col-sm-6 picture-col">
+      <img src="assets/images/ants.jpg" alt="ants" width="300px">
+    </div>
+    <div class="col-sm-6 game-col">
+      <ul class>
+      <!-- A list to  -->
+      <li id="winning">Wins:</li>
+        <br>
+        <br>
+        <li>CURRENT WORD:</li>
+      <li id="currentWord">Current Word:</li>
+        <br>
+        <br>
+      <li id="guessesLeft">Number of Guesses Remaining:</li>
+      <br>
+      <br>
+    <li id="alreadyGuessed">Letters Already Guessed:</li>
+    </ul>
+    </div>
   </div>
 </div>
 
-
-
+</div>
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>
