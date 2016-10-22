@@ -1,7 +1,6 @@
 // Variables //
-
 // Creating the array of words for the computer to choose from
-var words = ['garden', 'leaf', 'ocean', 'mountain', 'eagle', 'valley', 'tree', 'harambe', 'ant']; 
+var words = ['garden', 'leaf', 'ocean', 'mountain', 'eagle', 'valley', 'tree', 'harambe', 'ant'];
 var currentWord = words[0];
 var dashes = [];
 var userGuesses = [];
@@ -13,14 +12,14 @@ var wordSplit = []; //Splitting up the words in the array by letter to match use
 
 // Start of game //
 function startReset() {
-	remainingGuesses = 12;
-	wins+1;
-	userGuesses = [];
-	guessedLetters = [];
+    remainingGuesses = 12;
+    wins + 1;
+    userGuesses = [];
+    guessedLetters = [];
     // Computer choosing the random word from array 
     currentWord = words[Math.floor(Math.random() * words.length)];
     console.log(currentWord); //Console.logs the hidden word for my reference
-}// End of startReset function
+} // End of startReset function
 // Loop to show wordLength as underscores
 for (var i = 0; i < currentWord.length; i++) {
     dashes.push('_'); //.push will push whatever is in the ('') into the currentWord var
@@ -40,27 +39,28 @@ document.getElementById('alreadyGuessed').innerHTML = 'Letters Already Guessed: 
 document.onkeyup = function(event) {
     userGuess = (String.fromCharCode(event.keyCode).toLowerCase());
 
-    //checking to see if userGuess is in the word
+    // Checking to see if userGuess is in the word
     userGuesses.push(userGuess.toLowerCase());
-    var matchedLetters = ''; // These are the correct letters the the user guesses
+    var matchedLetters = ''; // These are the correct letters the user guesses
     for (i = 0; i < currentWord.length; i++) {
         if (userGuesses.indexOf(currentWord[i].toLowerCase()) > -1) {
             matchedLetters += currentWord[i];
         } else {
             matchedLetters += '_ ';
         }
+        // Updating the HTML
         document.getElementById('guessesLeft').innerHTML = 'Number of Guesses Remaining: ' + remainingGuesses;
         document.getElementById('alreadyGuessed').innerHTML = 'Letters already Guessed: ' + userGuesses.join(', ');
     }
-    	// Updating the remaining guesses, decreasing by 1
-     	remainingGuesses--;
-
+    // Updating the remaining guesses, decreasing by 1
+    remainingGuesses--;
+    // Showing matchedLetters in the console and HTML
     console.log(matchedLetters);
     document.getElementById('currentWord').innerHTML = matchedLetters;
-
+// Win/Run out of guesses
     if (currentWord == matchedLetters) {
         alert('You win!');
-       	wins++; 
+        wins++;
         document.getElementById('winning').innerHTML = 'Wins: ' + wins;
         startReset();
     } else if (remainingGuesses <= 0) {
