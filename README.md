@@ -1,4 +1,4 @@
-# HANGMAN
+# Hangman
 Hangman Game
 
 Heroku Link:
