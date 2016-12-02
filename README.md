@@ -1,4 +1,4 @@
-# week-3-game
+# HANGMAN
 Hangman Game
 
 Heroku Link:
